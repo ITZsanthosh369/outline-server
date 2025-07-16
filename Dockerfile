@@ -1,6 +1,3 @@
-# Copyright 2018 The Outline Authors
-# Licensed under the Apache License, Version 2.0...
-
 FROM node:16-buster-slim
 
 ARG VERSION
@@ -10,8 +7,10 @@ LABEL shadowbox.github.release=${VERSION}
 
 STOPSIGNAL SIGKILL
 
-# FIXED: Use apt-get (not apk) for Debian-based image
-RUN apt-get update && apt-get install -y coreutils curl
+# Use archive mirrors because Buster is EOL
+RUN sed -i 's/deb.debian.org/archive.debian.org/g' /etc/apt/sources.list && \
+    sed -i '/security.debian.org/d' /etc/apt/sources.list && \
+    apt-get update && apt-get install -y coreutils curl
 
 COPY . /
 
