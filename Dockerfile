@@ -14,7 +14,7 @@ RUN sed -i 's/deb.debian.org/archive.debian.org/g' /etc/apt/sources.list && \
 
 COPY . /
 
-RUN /etc/periodic/weekly/update_mmdb.sh
+#RUN /etc/periodic/weekly/update_mmdb.sh
 
 WORKDIR /opt/outline-server
 
