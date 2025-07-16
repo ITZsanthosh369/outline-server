@@ -26,6 +26,8 @@
     "webpack-cli": "^5.1.4"
   },
   "scripts": {
+    "postinstall": "go build github.com/go-task/task/v3/cmd/task",
+    "build": "tsc",
     "postinstall": "go build github.com/go-task/task/v3/cmd/task"
   },
   "engines": {
@@ -40,3 +42,4 @@
     }
   }
 }
+
