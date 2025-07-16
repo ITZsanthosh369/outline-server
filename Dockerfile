@@ -13,11 +13,10 @@ RUN sed -i 's/deb.debian.org/archive.debian.org/g' /etc/apt/sources.list && \
     apt-get update && apt-get install -y coreutils curl
 
 COPY . /
-RUN npm install
-RUN npm run build
-
-#RUN /etc/periodic/weekly/update_mmdb.sh
 
 WORKDIR /opt/outline-server
 
-CMD ["/cmd.sh"]
+RUN npm install
+RUN npm run build
+
+CMD ["node", "dist/src/shadowbox/server/main.js"]
