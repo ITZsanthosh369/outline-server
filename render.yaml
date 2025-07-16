@@ -5,8 +5,3 @@ services:
     plan: free
     region: singapore
     dockerfilePath: ./Dockerfile
-    buildCommand: ""
-    startCommand: ""
-    docker:
-      args:
-        NODE_IMAGE: node:16-buster-slim
